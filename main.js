@@ -9,12 +9,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname )));
 
 // Routes
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'))
+  // Serve the "index.html" file from the root directory
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
+
 
 app.get('/home', (req, res) => {
   const activePage = 'home';
